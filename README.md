@@ -46,3 +46,8 @@ Something that I originally wanted to do and am still interested in is using are
 
 
 I am a true believer of AI improving physical fitness technology. While we will see more medical applications of AI, it's important to realize that physical health is just as important. I think that many diseases can be prevented at the root, so while we should definitely be investing in technology to improve medical health solutions, let's not forget about physical health which can prevent many diseases and illnesses. Instead of a doctor prescribing medication, he could prescribe that a user follows a workout routine that is specific to a user which has numerous secondary benefits.
+
+
+
+https://user-images.githubusercontent.com/55901654/145437844-096501c0-2185-46dc-8954-ad62c44e060d.mov
+
