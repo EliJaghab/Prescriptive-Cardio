@@ -1,0 +1,202 @@
+[
+    {
+        "id": "c212f31b9f1346cd",
+        "type": "mqtt out",
+        "z": "89370960ac655d64",
+        "name": "Display Message",
+        "topic": "node-red",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "89ba9dbd3fe4700d",
+        "x": 1950,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8a6d4b42721a72fe",
+        "type": "switch",
+        "z": "89370960ac655d64",
+        "name": "Run Faster?",
+        "property": "payload[0].BPM",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "165",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "165",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1130,
+        "y": 420,
+        "wires": [
+            [
+                "2ba929d63977b59d"
+            ],
+            [
+                "68c6bc6b24e0ba34"
+            ]
+        ]
+    },
+    {
+        "id": "2ba929d63977b59d",
+        "type": "function",
+        "z": "89370960ac655d64",
+        "name": "Run Faster Message",
+        "func": "select = \"Current: \" + msg.payload[0].BPM + \"BPM. Run Faster! \";\n\nmsg.payload = select;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1400,
+        "y": 380,
+        "wires": [
+            [
+                "c212f31b9f1346cd",
+                "dc5fc75fbb939b46"
+            ]
+        ]
+    },
+    {
+        "id": "68c6bc6b24e0ba34",
+        "type": "function",
+        "z": "89370960ac655d64",
+        "name": "High Intensity Message",
+        "func": "select = \"Current: \" + msg.payload[0].BPM + \"BPM. High Intensity Pace! \";\n\nmsg.payload = select;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1410,
+        "y": 460,
+        "wires": [
+            [
+                "a70f102104ddae7d",
+                "c212f31b9f1346cd"
+            ]
+        ]
+    },
+    {
+        "id": "a70f102104ddae7d",
+        "type": "countdown",
+        "z": "89370960ac655d64",
+        "name": "",
+        "topic": "3 Minute Sprint!",
+        "payloadTimerStart": "true",
+        "payloadTimerStartType": "bool",
+        "payloadTimerStop": "false",
+        "payloadTimerStopType": "bool",
+        "timer": "10",
+        "resetWhileRunning": false,
+        "setTimeToNewWhileRunning": false,
+        "startCountdownOnControlMessage": false,
+        "x": 1650,
+        "y": 500,
+        "wires": [
+            [
+                "bcfee3ef5a4cb907"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "72fdc9fa519659db",
+        "type": "function",
+        "z": "89370960ac655d64",
+        "name": "High Intensity Message",
+        "func": "select = \"Your heart rate has been at a high intensity for 3 minutes! Great work! Time to cool down.\";\n\nmsg.payload = select;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1650,
+        "y": 640,
+        "wires": [
+            [
+                "c212f31b9f1346cd"
+            ]
+        ]
+    },
+    {
+        "id": "bcfee3ef5a4cb907",
+        "type": "switch",
+        "z": "89370960ac655d64",
+        "name": "Display Cool Down?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 580,
+        "wires": [
+            [
+                "72fdc9fa519659db"
+            ]
+        ]
+    },
+    {
+        "id": "dc5fc75fbb939b46",
+        "type": "debug",
+        "z": "89370960ac655d64",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1630,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "89ba9dbd3fe4700d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
